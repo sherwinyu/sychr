@@ -8,29 +8,30 @@ window.peek = (promise) ->
   else
     throw "Not resolved!"
 
-window.promise = (async, thisObj, args...) ->
+window.promisfy = (async, thisObj, args...) ->
   dfd = $.Deferred()
-
   args.push (callbackArgs...) ->
     dfd.resolve.apply dfd, callbackArgs
-
   async.apply thisObj, args
-
   dfd
+
+
 window.BG =
-
-      # promise chrome.windows.getLastFocused, @,
-
   updateData: ->
-    chrome.windows.getLastFocused (window) ->
+    @getLastFocusedWindow().then( (chromeWindow)->
+
+
+    )
+    chrome.windows.getLastFocused (chromeWindow) ->
       return unless window?
 
+# returns a promise for the last focused window object
   getLastFocusedWindow: ->
-    promise chrome.windows.getLastFocused, @
+    promisify chrome.windows.getLastFocused, @
 
 # returns a promsie for current tab
   getCurrentTab: ->
-    promise chrome.windows.getLastFocused, @,
+    promisify chrome.windows.getLastFocused, @,
 
   getDomainFromTab: (tab)->
     tab.url
