@@ -1,0 +1,37 @@
+<html>
+<script type="text/javascript" src="libs/jquery-2.0.3.js"></script>
+<!--script type="text/javascript" src="libs/mixpanel-2.2.min.js"></script!-->
+<script type="text/javascript" src="build/popup.js"></script>
+<script type="text/javascript" src="build/mixpanel.js"></script>
+<style>
+  body {
+    background-color: #DDD;
+    padding: 20px;
+    border-radius: 15px;
+    font: normal 80% Arial, Helvetica, sans-serif;
+    width: 20em;
+  }
+  input {
+    font-size:18px;
+  }
+
+  #infos {
+    padding:5px;
+    font: normal 75% Arial, Helvetica, sans-serif;
+    color: #333;
+  }
+</style>
+<div id='tabswitcher-settings'>
+  <h1>SysChrome settings</h1>
+  <form id="tabswitcher-settings-form" action="#">
+    <p>Press in the following input the hotkey (letter plus modifier) you'd like to use.</p>
+    <p><i>You can't use a combination that is already used by Chrome</i></p>
+    <input id="tabswitcher-settings-hotkey-input" type="text"/>
+    <p>Example : ctrl-k, cmd+j, alt-k or even just a letter.</p>
+    <div id="infos">
+      <p>Tabswitcher is still under development, please report bugs or features requests on <a href="https://github.com/jhchabran/tabswitcher/issues">the bug tracker</a>, thanks.</p>
+    </div>
+  </form>
+</div>
+<a id="manual"> test me </a>
+</html>
