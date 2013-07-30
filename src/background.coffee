@@ -37,11 +37,13 @@ window.BG =
   preparePayload: (url, title) ->
     payload = @parseUrl(url)
     payload.title = title
-    payload
-    time_spent: @getTimeSpent()
+    payload.time_spent = @getTimeSpent()
+    return payload
 
   track: (tab)->
-    mixpanel.track "tab_focused", @preparePayload(tab.url, tab.title)
+    payload = @preparePayload(tab.url, tab.title)
+    mixpanel.track "tab_focused", payload
+    console.log "MixpanelTracking! domain: #{payload.domain} page: #{payload.page}for #{payload.time_spent} seconds"
 
   updateData: ->
     @getCurrentTab().then( (tab) =>
