@@ -11,7 +11,8 @@ $ ->
 
 
   $('#manual').click (e)->
-    mixpanel.track "wagawaga", count: 1
+    mixpanel.track "mclick", count: 1, ->
+      debugger
     console.log 'waga waga'
 
   chrome.storage.sync.get "config", (items)->
